@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  floodguard-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: floodguard-ai
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=FloodGuard AI
+      - ENVIRONMENT=production
+      - CDSE_CLIENT_ID=${CDSE_CLIENT_ID:-}
+      - CDSE_CLIENT_SECRET=${CDSE_CLIENT_SECRET:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    volumes:
+      - ./backend/data:/app/backend/data
+      - ./backend/reports_out:/app/backend/reports_out
+    restart: unless-stopped
