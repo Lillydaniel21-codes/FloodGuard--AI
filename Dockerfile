@@ -1,7 +1,6 @@
 # Multi-stage Dockerfile for FloodGuard AI
 # Stage 1: Build Frontend
-FROM node:20-slim AS 
-frontend-builder
+FROM node:20-slim AS frontend-builder
 
 WORKDIR /app/frontend
 
