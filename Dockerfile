@@ -27,7 +27,6 @@ RUN pip install --no-cache-dir -r backend/requirements.txt
 
 # Copy backend application and fixtures
 COPY backend/ ./backend/
-COPY fixtures/ ./fixtures/
 
 # Copy built frontend assets
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
